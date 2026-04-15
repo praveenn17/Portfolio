@@ -1576,7 +1576,7 @@
 
     .pphi {
       font-size: 2rem;
-      opacity: .1
+      opacity: .5
     }
 
     .ppht {
@@ -1648,6 +1648,112 @@
     .ccard:hover {
       transform: translateY(-8px);
       box-shadow: 0 24px 60px rgba(0, 0, 0, .5)
+    }
+
+    .cgrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .ccard {
+      border: 1px solid var(--gb);
+      border-radius: 16px;
+      background: var(--glass);
+      padding: 22px;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+      cursor: default
+    }
+
+    .ccard::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(0, 212, 255, .05), transparent 60%);
+      opacity: 0;
+      transition: opacity .3s
+    }
+
+    .ccard:hover::after {
+      opacity: 1
+    }
+
+    .ccard:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 212, 255, .28)
+    }
+
+    .ciss {
+      font-family: var(--fm);
+      font-size: .63rem;
+      color: var(--c);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 11px;
+      display: flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .cissdt {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--c)
+    }
+
+    .ccard h3 {
+      font-family: var(--fh);
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--w);
+      line-height: 1.4;
+      margin-bottom: 10px
+    }
+
+    .cdate {
+      font-family: var(--fm);
+      font-size: .67rem;
+      color: var(--gr);
+      margin-bottom: 14px
+    }
+
+    .cskills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 14px
+    }
+
+    .csk {
+      padding: 3px 9px;
+      border-radius: 100px;
+      background: rgba(124, 58, 237, .1);
+      border: 1px solid rgba(124, 58, 237, .18);
+      font-family: var(--fm);
+      font-size: .63rem;
+      color: #a78bfa
+    }
+
+    .cvbtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--fm);
+      font-size: .7rem;
+      color: var(--gr);
+      text-decoration: none;
+      transition: color .3s;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0
+    }
+
+    .cvbtn:hover {
+      color: var(--c)
     }
 
     /* shimmer sweep */
@@ -2279,7 +2385,7 @@
     <div class="nl" id="logo">PK<span class="nl-egg" id="egg-hint"></span></div>
     <ul class="nlinks" id="nlinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#skills-wrap">Skills</a></li>
+      <li><a href="#skills-wrap">Skill</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects-wrap">Projects</a></li>
       <li><a href="#certifications">Certs</a></li>
@@ -2445,21 +2551,24 @@
             </div>
           </div>
         </div>
-        <div class="rvr" style="padding-top:60px;">
+        <div class="rvr" style="padding-top:40px;">
           <div class="slbl">Who Am I</div>
           <h2 class="stitle" style="margin-bottom:20px;">About <span class="gt">Me</span></h2>
           <div style="display:grid;grid-template-columns:1fr 0.6fr;gap:40px;">
             <div>
-              <p>I'm a 3rd-year B.Tech Computer Science student at RTU Kota and a Full Stack Web Developer who enjoys
+              <p style="padding:10px 0 10px 0;">I'm a 3rd-year B.Tech Computer Science student at RTU Kota and a Full
+                Stack Web Developer who enjoys
                 turning ideas into real-world applications using React, Node.js, Python, and SQL.</p>
-              <p>I don't just build websites — I create systems that solve problems and improve user experiences. Driven
+              <p style="padding:10px 0 10px 0;">I don't just build websites — I create systems that solve problems and
+                improve user experiences. Driven
                 by curiosity and ambition, I'm passionate about AI & ML, continuous learning, and gearing up for GATE
                 2027.</p>
-              <!-- <p>With hands-on government internship experience, I've seen how technology transforms public services at scale. Let's collaborate on impactful tech!</p> -->
+              <p style="padding:10px 0 10px 0;">With hands-on government internship experience, I've seen how technology
+                transforms public services at scale. Let's collaborate on impactful tech!</p>
             </div>
             <div>
-              <img src="https://drive.google.com/file/d/1n6Xxonwr9RigiBpto00VytktQBbSkDVN/view?usp=drive_link"
-                height="500px" width="500px">
+              <img src="https://res.cloudinary.com/dcaafndhz/image/upload/f_auto,q_auto/photo_byy37m" height="250px"
+                width="250px">
             </div>
           </div>
         </div>
@@ -2566,7 +2675,7 @@
               <div class="tbody">
                 <ul>
                   <li>Engineered the JBVNL Billing System Portal — production-ready full-stack app transforming a legacy
-                    govt. site into a task-oriented digital ecosystem.</li>
+                    govt. sites into a task-oriented digital ecosystem.</li>
                   <li>Solved critical UX pain points delivering 30% faster resolution time for 500+ active users.</li>
                   <li>Architected a Real-Time Tracking Dashboard replacing offline processes with transparent visual
                     updates.</li>
@@ -2607,19 +2716,124 @@
     </section>
 
     <!-- PROJECTS -->
-    <div id="projects-wrap">
+    <!-- <div id="projects-wrap">
       <div class="seci" style="padding-top:100px;padding-bottom:100px">
         <div class="slbl rv">What I've Built</div>
         <h2 class="stitle rv">Featured <span class="gt">Projects</span></h2>
         <div class="pgrid" id="pgrid"></div>
       </div>
+    </div> -->
+    <div id="projects">
+      <div class="seci" style="padding-top:120px;padding-bottom:120px">
+        <div class="slbl rv on">What I've Built</div>
+        <h2 class="stitle rv on">Featured <span class="gt">Projects</span></h2>
+        <div class="pgrid" id="pgrid">
+          <div class="pph rv on" style="transition-delay: 0s;">
+            <div class="pphi">
+              <p style="font-size: 16px;">Full-stack MERN web portal built during a JBVNL internship that replaces the
+                outdated official website with a modern, responsive interface featuring real-time complaint tracking,
+                OTP authentication, and role-based access control.</p>
+            </div>
+            <div class="ppht"><a href="https://jbvnl-portal.vercel.app/" target="_blank">Tap to view Website</a></div>
+            <div class="ppht" style="font-size:.6rem;margin-top:4px"><a
+                href="https://drive.google.com/file/d/1Mo4Q_FLNOGK2TUlTSLAjSlEkFHOakgIl/view?usp=drive_link"
+                target="_blank">Tap to view Report</a></div>
+          </div>
+          <div class="pph rv on" style="transition-delay: 0.1s;">
+            <div class="pphi">⚡</div>
+            <div class="ppht">PROJECT COMING SOON</div>
+            <div class="ppht" style="font-size:.6rem;margin-top:4px">Add to projectsData[] in script</div>
+          </div>
+          <div class="pph rv on" style="transition-delay: 0.2s;">
+            <div class="pphi">⚡</div>
+            <div class="ppht">PROJECT COMING SOON</div>
+            <div class="ppht" style="font-size:.6rem;margin-top:4px">Add to projectsData[] in script</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- CERTS -->
-    <section id="certifications" class="sec">
+    <!-- <section id="certifications" class="sec">
       <div class="slbl rv">Credentials</div>
       <h2 class="stitle rv">Certifications & <span class="gt">Training</span></h2>
       <div class="cgrid" id="cgrid"></div>
+    </section> -->
+    <section id="certifications" class="sec">
+
+      <div class="slbl rv on">Credentials</div>
+
+      <h2 class="stitle rv on">Certifications &amp; <span class="gt">Training</span></h2>
+
+      <div class="cgrid" id="cgrid">
+        <div class="ccard rv tiltable on" id="jbvnl-cert" style="transition-delay: 0s;">
+          <div class="ciss"><span class="cissdt"></span>JBVNL · Govt. of Jharkhand</div>
+          <h3>Internship Experience Certificate</h3>
+          <div class="cdate">📅 July 2025</div>
+          <div class="cskills"><span class="csk">Full Stack Dev</span><span class="csk">React</span><span
+              class="csk">Node.js</span><span class="csk">Java</span></div><span class="cvbtn"
+            style="opacity:.32;cursor:default"><a
+              href="https://drive.google.com/file/d/10q923DvJ8R_394nqYRDIp1qpZqR5ibVo/view?usp=drive_link"
+              target="_blank" style="color:white">Tap to view Certificate</a></span>
+        </div>
+        <div class="ccard rv tiltable on" id="python-ml-cert" style="transition-delay: 0.1s;">
+          <div class="ciss"><span class="cissdt"></span>Think Wave Technologies · Patiala</div>
+          <h3>Python &amp; Machine Learning — Industrial Training</h3>
+          <div class="cdate">📅 Dec 2024</div>
+          <div class="cskills"><span class="csk">Python</span><span class="csk">Machine Learning</span></div><span
+            class="cvbtn" style="opacity:.32;cursor:default"><a
+              href="https://drive.google.com/file/d/1NnJvcji5MBNGt4VzySVYdwpjD7fMy3NA/view?usp=drive_link"
+              target="_blank" style="color:white">Tap to view Certificate</a></span>
+        </div>
+        <div class="ccard rv tiltable on" id="jpmorgan-cert" style="transition-delay: 0.2s;">
+          <div class="ciss"><span class="cissdt"></span>JPMorgan Chase &amp; Co. · Forage</div>
+          <h3>Software Engineering Job Simulation</h3>
+          <div class="cdate">📅 Mar 2026</div>
+          <div class="cskills"><span class="csk">Kafka</span><span class="csk">H2 DB</span><span class="csk">REST
+              API</span><span class="csk">Spring Boot</span></div><span class="cvbtn"
+            style="opacity:.32;cursor:default"><a
+              href="https://drive.google.com/file/d/1BJuNrQLY5_mJKio6f1yl4y1NpKgi7WTS/view?usp=drive_link"
+              target="_blank" style="color:white">Tap to view Certificate</a></span>
+        </div>
+        <div class="ccard rv tiltable on" id="cybersec-cert" style="transition-delay: 0s;">
+          <div class="ciss"><span class="cissdt"></span>Commonwealth Bank · Forage</div>
+          <h3>Introduction to Cybersecurity Job Simulation</h3>
+          <div class="cdate">📅 Mar 2026</div>
+          <div class="cskills"><span class="csk">Data Analysis</span><span class="csk">Incident Response</span><span
+              class="csk">Pen Testing</span></div><span class="cvbtn" style="opacity:.32;cursor:default"><a
+              href="https://drive.google.com/file/d/1wN8zFaKRNKOP6BVRk_5dEsTbm2en_vn0/view?usp=drive_link"
+              target="_blank" style="color:white">Tap to view Certificate</a></span>
+        </div>
+        <div class="ccard rv tiltable on" id="deloitte-cert" style="transition-delay: 0.1s;">
+          <div class="ciss"><span class="cissdt"></span>Deloitte · Forage</div>
+          <h3>Data Analytics Job Simulation</h3>
+          <div class="cdate">📅 Mar 2026</div>
+          <div class="cskills"><span class="csk">Data Analysis</span><span class="csk">Forensic Technology</span></div>
+          <span class="cvbtn" style="opacity:.32;cursor:default"><a
+              href="https://drive.google.com/file/d/1F6rAA2CZQQMQqejOCCT-fcC-Mg_y_v64/view?usp=drive_link"
+              target="_blank" style="color:white">Tap to view Certificate</a></span>
+        </div>
+        <div class="ccard rv tiltable on" id="tata-cert" style="transition-delay: 0.2s;">
+          <div class="ciss"><span class="cissdt"></span>Tata Group · Forage</div>
+          <h3>GenAI Powered Data Analytics Job Simulation</h3>
+          <div class="cdate">📅 Apr 2026</div>
+          <div class="cskills"><span class="csk">GenAI</span><span class="csk">Risk Profiling</span><span class="csk">AI
+              Strategy</span><span class="csk">Data Storytelling</span></div><span class="cvbtn"
+            style="opacity:.32;cursor:default"><a
+              href="https://drive.google.com/file/d/1wfzk5buA-xELGJ_cMwWEfTmz3asO-cM7/view?usp=drive_link"
+              target="_blank" style="color:white">Tap to view Certificate</a></span>
+        </div>
+        <div class="ccard rv tiltable on" id="lloyds-cert" style="transition-delay: 0s;">
+          <div class="ciss"><span class="cissdt"></span>Lloyds Banking Group · Forage</div>
+          <h3>UX Design Introduction Job Simulation</h3>
+          <div class="cdate">📅 Apr 2026</div>
+          <div class="cskills"><span class="csk">UX Design</span><span class="csk">Customer Research</span><span
+              class="csk">Survey Design</span></div><span class="cvbtn" style="opacity:.32;cursor:default"><a
+              href="https://drive.google.com/file/d/1aY4o7mEcAgAnUsaYJ-9rAp0OXvVxyYf5/view?usp=drive_link"
+              target="_blank" style="color:white"> Tap to view Certificate</a></span>
+        </div>
+      </div>
+
     </section>
 
     <!-- ACHIEVEMENTS -->
@@ -2653,7 +2867,8 @@
         <div class="ricn">📄</div>
         <h2>Download My <span class="gt">Resume</span></h2>
         <p>A comprehensive overview of my experience, skills, projects, and certifications.</p>
-        <a href="#" class="rdlbtn" download="Praveen_Kumar_Resume.pdf"><span>⬇️ Download Resume PDF</span></a>
+        <a href="https://drive.google.com/file/d/16JhgSvGuwn5sSQqRfRanVZF30ihbKdsc/view?usp=drive_link" target="_blank"
+          class="rdlbtn" download="Praveen_Kumar_Resume.pdf"><span>⬇️Click Here to Download Resume PDF </span></a>
       </div>
     </section>
 
