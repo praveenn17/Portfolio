@@ -1,0 +1,12 @@
+Before editing, first inspect the current file structure and identify:
+1. navbar component
+2. hero section component
+3. about section component
+4. skills section component
+5. projects data source
+6. certifications data source
+7. achievements data source
+8. resume section component
+9. contact section component
+
+Then implement the requested improvements cleanly and keep all future-editable content centralized.
